@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [  // 函式庫（library）路徑  // 自動完成（autoComplete）
+        ".\\venv\\Lib\\site-packages"
+    ],
+    "python.analysis.extraPaths": [  // 從函式庫（library）路徑分析（analysis），找到相關的code加以運用
+        ".\\venv\\Lib\\site-packages"
+    ]
+}

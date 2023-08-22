@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "expense-tracker-app-392308",
+  "private_key_id": "a0f2bb4f12a199e4289063b86b20d40a14abac3c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCnrzc/qzp49eUC\nR+XA+U8YyMHhaGTABr9Mx3vm2IxHmnitkczsUd7DMh55Tk/h27oHyyVm7+qiGW1R\nhH3e+QeNNgal6Yh5upNFP57hvPMvRZrlwgXUra2f/L0+HB41E+/9P46NsNAFSzhd\nlRxbnjvoMMEAyubQIqPngMlewc7XXf7dJElwx5skZTC6Uh8tOFS1tZ7fG47Tjssh\nYHfFRf7U5sXtJhRaPLl4CJ7btUBfv1OPgLEqb+2uuYCOtqH+wj+RJOj+0hAxLWKu\nTCc2nby4DYAyLjcg4GSynJBBexS94Xmbg21ge2OYnkRY10RmyDAJt++41jMXfWYR\nC/OyE4nLAgMBAAECggEADuGFzaisb7+iqykmQpHdax2l1xMkncX7hBzP6hSdnl0f\nCIg/31kEo932xl0kya5uO/LTRudTsz7+bJWNdhQzj1yUCnVHH0Zne2XB+9aA3lkW\n/fzR96XSGribMr/cDmnOinLxe7GNRGsAfY2WDqtkNZ7eAev/v8jTMuBC/p3EdWhF\nJH1PH9aDZjQU7RPKFtNlGo1TWQwjPXqWF13SxG7ColICSf19s5BEmbGR61w37vw9\nRqyeW/q/y60CUHFjMuXfGTPoCerqHEZ2NGH9eJU82WykQ+Sv7YTVKS5LPqH0BDmP\n1fcA34Aaa7bSoncMmiKXbl5o9BUo2WHROcUPnm3pQQKBgQDh67bI5MC/uXGqOjug\nTbweXcH9iFz7ieUM1aubngkwRMoReFSBDZh/JcafAELENLtUrXzRK/EnYB7eYERt\nVZkXN0/FFY0CcI/s6U3nKKzkmCMB+3ltAGHS0bdUoqa4ZKhhkIywTMJO62/Cl+3u\nriXvDuuF511aqcMOcePlSWVH9QKBgQC+ApMFbSSlVX561DdH00V1dy87pPC90xcZ\naXckl9pAQQe56habWhymVuqC/EcHHoHfEA+gO12CEBCvrLLWc/EUrBlmNTNFEqL8\nKKNRjDyqaAmVFCfEv3LU3vuTFZ8SeyJg9Hp8s+Zr1lONq1t3eUkYcTW7DRC/1/RU\nS2ypMYEyvwKBgQC/Pd6j3mh/o4ZheBwDTephtjJB4Q387DTVkYZMHBJhJsn60eaO\nvCiL8TlaXUkneA/f1WAkXNMt5sMasVkbSGtoaK0BA4YzO3/KJ5CHjjoU4+g2hF68\nc6dbY6WSYoFI9ARJWqiNkNynG8umaR/DfO2lmPasijbPSYdRkf09mcy/hQKBgQC7\n+Mv9eEXikjt3w+2UTrvOQ0Qk2z2WbPfTGfTV7KvrGOpNz/jhYzoojJ+fSXfy4QlV\n5QuwVkphWwdG47BgW37KFp9h74ty78bxcjpveC6j3hxssO3OxB8T3CxBDAi8Pbh6\n9iEesNJpKDSsWDM6dHANkCG5lGlXgIqjwaITl3fa/QKBgQDMVUDv8R5WfBePdkfK\nNg1Y7TgtovOJ5ncXk30OZ/WMAS7Cq0IxWeiBvpyNODOtCZE5acgzUVQhC7jbe39S\n0R79cS1rcU7xfcQ7u0SKq4ZwivKa9StdD/p/rMxEF3WXGy0gfmCfLCP4bfiV2Ahl\na1Gjhq9r9a5/Yq7R4fWO2FRkkQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "expence-tracker@expense-tracker-app-392308.iam.gserviceaccount.com",
+  "client_id": "116252340231837707809",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/expence-tracker%40expense-tracker-app-392308.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
