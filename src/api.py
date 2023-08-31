@@ -17,7 +17,7 @@ sheet_test01 = spreadSheet.worksheet_by_title("表單回應 1")
 # print(type(sheet_test01[1]))
 
 # read
-A1 = sheet_test01.cell('A1')
+# A1 = sheet_test01.cell('A1')
 # print(A1)
 # print(A1.value)
 
@@ -26,10 +26,12 @@ A1 = sheet_test01.cell('A1')
 #讀取 df 也可以這樣寫
 # sheet_test01.get_as_df()
 
-# sheet_test01.get_all_records()
-# pprint.pprint(sheet_test01.get_all_records()) # 輸出整頁 google sheet
-# pprint.pprint(sheet_test01.get_all_records()[1]) # 輸出整頁 google sheet
 sheet_data = sheet_test01.get_all_records()
-for row in sheet_data:
-    pprint.pprint(row['時間戳記']) # 輸出整頁 google sheet
+pprint.pprint(sheet_data) # 輸出整頁 google sheet
+# pprint.pprint(sheet_test01.get_all_records()[1]) # 輸出整頁 google sheet
 
+# sheet_data = sheet_test01.get_all_records()
+# for row in sheet_data:
+#     pprint.pprint(row['時間戳記']) # 輸出整頁 google sheet
+
+print(sheet_data[0]['帳務時間'])
