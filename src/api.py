@@ -1,5 +1,6 @@
 import pygsheets
 import pprint # 使用 pprint 套件，印出較容易閱讀的格式
+from call_sheetrange import MyExcel
 
 auth_file = "../static/expense-tracker-app-392308-a0f2bb4f12a1.json"
 googleCloud = pygsheets.authorize(service_file = auth_file)
@@ -35,3 +36,14 @@ pprint.pprint(sheet_data) # 輸出整頁 google sheet
 #     pprint.pprint(row['時間戳記']) # 輸出整頁 google sheet
 
 print(sheet_data[0]['帳務時間'])
+
+myExcel = MyExcel()
+column_A = myExcel.sheet.range('A1').expand('down').value
+length_A = len(column_A)
+startIndex_A = length_A+1
+
+
+myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]['帳務時間']
+
+
+
