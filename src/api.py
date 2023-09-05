@@ -39,7 +39,16 @@ print(sheet_data[0]['帳務時間'])
 
 myExcel = MyExcel()
 column_A = myExcel.sheet.range('A1').expand('down').value
-length_A = len(column_A)
+
+print(column_A)
+print(type(column_A))
+
+if column_A is None:
+    length_A = 0
+elif not isinstance(column_A, list):
+    length_A = 1
+else:
+    length_A = len(column_A)
 startIndex_A = length_A+1
 
 
