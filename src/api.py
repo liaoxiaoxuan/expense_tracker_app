@@ -38,21 +38,25 @@ pprint.pprint(sheet_data) # 輸出整頁 google sheet
 print(sheet_data[0]['帳務時間'])
 
 myExcel = MyExcel()
-column_A = myExcel.sheet.range('A1').expand('down').value
+column_A = myExcel.sheet.range('A1').expand('down').value  # 把右邊裝到左邊（把右邊寫到左邊），把右邊一連串東東回傳的結果放到名為 column_A 的盒子
 
 print(column_A)
 print(type(column_A))
 
-if column_A is None:
-    length_A = 0
-elif not isinstance(column_A, list):
-    length_A = 1
+if column_A is None:  # 如果 column_A 沒有內容
+    length_A = 0  # 把右邊的 0 放到名為 length_A 的盒子
+elif not isinstance(column_A, list):  # 如果 column_A 這個盒子的型態是 list
+    length_A = 1  # 把右邊的 1 放到名為 length_A 的盒子
 else:
-    length_A = len(column_A)
-startIndex_A = length_A+1
+    length_A = len(column_A)  # 把右邊計算 column_A 長度（len）的結果放到名為 length_A 的盒子
+startIndex_A = length_A+1  # 把右邊計算 length_A+1 的結果放到名為 startIndex_A 的盒子
 
 
-myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]['帳務時間']
+# myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）填入 A 行的 startIndex_A（length_A+1）格子
+myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
+
+
+
 
 
 
