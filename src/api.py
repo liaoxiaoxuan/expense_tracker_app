@@ -59,6 +59,6 @@ myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = li
 
 
 
- # 下次進度：將 value 填入 excel 對應的行
+ # 之後進度：將 value 填入 excel 對應的行→設定程式執行的時機→從 google sheet 抓的範圍
 
 
