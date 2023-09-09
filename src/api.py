@@ -51,12 +51,14 @@ else:
     length_A = len(column_A)  # 把右邊計算 column_A 長度（len）的結果放到名為 length_A 的盒子
 startIndex_A = length_A+1  # 把右邊計算 length_A+1 的結果放到名為 startIndex_A 的盒子
 
+print(list(sheet_data[0].values()))
 
 # myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）填入 A 行的 startIndex_A（length_A+1）格子
-myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
+# myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
+myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = list(sheet_data[0].values())  # 取出 sheet_data[0] 這個 dict 當中的 values，但取出的型態（type）會是 dict_values 需要轉換成可以讓 excel 吃到的 list
 
 
 
-
+ # 下次進度：將 value 填入 excel 對應的行
 
 
