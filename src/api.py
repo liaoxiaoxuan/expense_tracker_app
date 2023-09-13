@@ -51,17 +51,23 @@ else:
     length_A = len(column_A)  # 把右邊計算 column_A 長度（len）的結果放到名為 length_A 的盒子
 startIndex_A = length_A+1  # 把右邊計算 length_A+1 的結果放到名為 startIndex_A 的盒子
 
-print(list(sheet_data[0].values()))
-# googleHeader = ["帳務時間","類型","收入金額","入帳戶名","付款方式"]
-# print([sheet_data[0][key] for key in googleHeader])
+print(list(sheet_data[0].values())) # [0] 1. 代表取了 index（索引）為零的東西 2. （包含標題列在內的）第一列的內容
+googleHeader = ["帳務時間","類型","收入類別","收入明細","收入金額","入帳戶名","支出金額","付款方式","收入備註"] # 將欲填入 excel 裡面的 google 表單的 key 順序，命名為 googleHeader
+# print([sheet_data[0][key] for key in googleHeader]) # list comprehension（列表生成式）
+
+inToExcel = []
+for key in googleHeader:
+    print(key)
+    print(sheet_data[0][key])
+    inToExcel.append(sheet_data[0][key])
 
 # myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）填入 A 行的 startIndex_A（length_A+1）格子
 # myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]['日期'],   # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
-myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = list(sheet_data[0].values())  # 取出 sheet_data[0] 這個 dict 當中的 values，但取出的型態（type）會是 dict_values 需要轉換成可以讓 excel 吃到的 list
+# myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = list(sheet_data[0].values())  # 取出 sheet_data[0] 這個 dict 當中的 values，但取出的型態（type）會是 dict_values 需要轉換成可以讓 excel 吃到的 list
+myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = inToExcel
 
 
 
-
- # 之後進度（action item）：將 value 填入 excel 對應的行→設定程式執行的時機→從 google sheet 抓的範圍
+ # 之後進度（action item）：將 value 填入 excel 對應的行→用 if else 迴圈，篩選、插入 C、D、I →設定程式執行的時機→從 google sheet 抓的範圍
 
 
