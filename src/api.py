@@ -68,6 +68,7 @@ for key in googleHeader:
         # 使用時機，如 google sheet 的「收入類別」、「消費內容」、「開銷內容」三欄的內容，都要視時機填入 Excel 的「類別」
         inToExcel.append(sheet_data[0][key])
 
+# 將 value 填入 excel 對應的行
 # myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）填入 A 行的 startIndex_A（length_A+1）格子
 # myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]['日期'],   # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
 # myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = list(sheet_data[0].values())  # 取出 sheet_data[0] 這個 dict 當中的 values，但取出的型態（type）會是 dict_values 需要轉換成可以讓 excel 吃到的 list
