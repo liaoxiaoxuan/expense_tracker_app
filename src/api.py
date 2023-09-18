@@ -52,14 +52,21 @@ else:
 startIndex_A = length_A+1  # 把右邊計算 length_A+1 的結果放到名為 startIndex_A 的盒子
 
 print(list(sheet_data[0].values())) # [0] 1. 代表取了 index（索引）為零的東西 2. （包含標題列在內的）第一列的內容
-googleHeader = ["帳務時間","類型","收入類別","收入明細","收入金額","入帳戶名","支出金額","付款方式","收入備註"] # 將欲填入 excel 裡面的 google 表單的 key 順序，命名為 googleHeader
+googleHeader = ["帳務時間","類型","收入類別","消費內容","開銷內容","收入明細","支出明細","收入金額","入帳戶名","支出金額","付款方式","收入備註","支出備註"] 
+# 將欲填入 excel 裡面的 google 表單的 key 順序，命名為 googleHeader
+# googleHeader 就是 google sheet 的標題列
 # print([sheet_data[0][key] for key in googleHeader]) # list comprehension（列表生成式）
 
 inToExcel = []
 for key in googleHeader:
+    # 按照 googleHeader 的順序去跑 key
     print(key)
     print(sheet_data[0][key])
-    inToExcel.append(sheet_data[0][key])
+    # 印出 key 對應的 value
+    if not sheet_data[0][key]:
+        # 如果 key 對應的 value 是非空字串，再填入 value
+        # 使用時機，如 google sheet 的「收入類別」、「消費內容」、「開銷內容」三欄的內容，都要視時機填入 Excel 的「類別」
+        inToExcel.append(sheet_data[0][key])
 
 # myExcel.sheet.range('A'+str(startIndex_A)).value = sheet_data[0]  # 把右邊的資料（sheet_data[0]）填入 A 行的 startIndex_A（length_A+1）格子
 # myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = True).value = sheet_data[0]['日期'],   # 把右邊的資料（sheet_data[0]）經過轉置（options(transpose = True)）填入 A 行的 startIndex_A（length_A+1）格子
@@ -68,6 +75,6 @@ myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = in
 
 
 
- # 之後進度（action item）：將 value 填入 excel 對應的行→用 if else 迴圈，篩選、插入 C、D、I →設定程式執行的時機→從 google sheet 抓的範圍
+ # 之後進度（action item）：將 value 填入 excel 對應的行→用 if else 迴圈，篩選、插入 G →測試一次填入好幾行→設定程式執行的時機→從 google sheet 抓的範圍
 
 
