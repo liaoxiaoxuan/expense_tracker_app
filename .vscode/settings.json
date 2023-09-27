@@ -4,5 +4,7 @@
     ],
     "python.analysis.extraPaths": [  // 從函式庫（library）路徑分析（analysis），找到相關的code加以運用
         ".\\venv\\Lib\\site-packages"
-    ]
+    ],
+    "git.autofetch": true,
+    "files.autoSave": "afterDelay"
 }
