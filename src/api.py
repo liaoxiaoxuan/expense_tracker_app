@@ -66,6 +66,18 @@ for key in googleHeader:
     print(sheet_data[0][key])
     # 印出 key 對應的 value
 
+    if sheet_data[0][key]:
+        # 如果 key 對應的 value 是非空字串，再填入 value
+        # 使用時機，如 google sheet 的「收入類別」、「消費內容」、「開銷內容」三欄的內容，都要視時機填入 Excel 的「類別」
+        inToExcel.append(sheet_data[0][key])
+    # else:
+    #     # 如果 key 對應的 value 是空字串，則填入「空字串」
+    #     inToExcel.append("")
+    elif sheet_data[0]["收入金額"] == "":
+        inToExcel.append("")
+    elif sheet_data[0]["入帳戶名"] == "":
+        inToExcel.append("")
+
     if sheet_data[0]["支出者"] == "曉仙":
         sheet.range('H' + str(row)).value = sheet_data[0]["支出金額"]
         sheet.range('I' + str(row)).value = ""
@@ -74,12 +86,7 @@ for key in googleHeader:
         sheet.range('H' + str(row)).value = ""
     # 9/26：思考要如何把 google sheet 的 G 吃進來
     
-    if sheet_data[0][key]:
-        # 如果 key 對應的 value 是非空字串，再填入 value
-        # 使用時機，如 google sheet 的「收入類別」、「消費內容」、「開銷內容」三欄的內容，都要視時機填入 Excel 的「類別」
-        inToExcel.append(sheet_data[0][key])
-    else:
-        # 如果 key 對應的 value 是空字串，需要塞某個東西填入
+
 print(inToExcel)
 
 # 將 value 填入 excel 對應的行
