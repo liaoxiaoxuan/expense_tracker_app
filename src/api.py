@@ -178,6 +178,6 @@ myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = in
 
 
 
- # 之後進度（action item）：測試一次填入好幾行→設定程式執行的時機→從 google sheet 抓的範圍
+ # 之後進度（action item）：測試一次填入好幾行（用for迴圈滾[0]）→設定程式執行的時機→從 google sheet 抓的範圍
 
 
