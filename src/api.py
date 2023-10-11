@@ -54,7 +54,8 @@ startIndex_A = length_A+1  # 把右邊計算 length_A+1 的結果放到名為 st
 
 # print(list(sheet_data[0].values())) # [0] 1. 代表取了 index（索引）為零的東西 2. （包含標題列在內的）第一列的內容
 # excelHeader = ["帳務時間","類型","收入類別","消費內容","開銷內容","收入明細","支出明細","收入金額","入帳戶名","支出金額","付款方式","收入備註","支出備註"] 
-excelHeader = ["帳務時間","類型","C","D","收入金額","入帳戶名","共同支出","曉仙支出","育玠支出","固定支出","付款方式","I"]
+excelHeader = ["帳務時間","類型","C","D","收入金額","入帳戶名","G","付款方式","I"]
+# G = {"共同支出","曉仙支出","育玠支出","固定支出"}
 # 英文字母對照：C = 收入類別、消費內容、開銷內容 ; D = 收入明細、支出明細 ; G = 支出金額、支出者 ; I = 收入備註、支出備註
 # 將欲填入 excel 裡面的 google 表單的 key 順序，命名為 excelHeader
 # excelHeader 就是 google sheet 的標題列
@@ -76,34 +77,79 @@ for key in excelHeader:
             
             # 會有填入excel格子的問題，多餘的空格？
             # 把 google sheet 的 G 吃進來
-            if key == "G":
+            if key == "C":
+                inToExcel.append(sheet_data[0]["消費內容"])
+            elif key == "D":
+                inToExcel.append(sheet_data[0]["支出明細"])
+            elif key == "G":
                 if sheet_data[0]["支出者"] == "曉仙":
-                    inToExcel.append(sheet_data[0][key])
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
                     inToExcel.append("")
                 elif sheet_data[0]["支出者"] == "育玠":
                     inToExcel.append("")
-                    inToExcel.append(sheet_data[0][key])
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
+                elif sheet_data[0]["支出者"] == "共同分擔":
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append("")
+                elif sheet_data[0]["支出者"] == "固定開銷":
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+            elif key == "I":inToExcel.append(sheet_data[0]["支出備註"])
             else:
                 inToExcel.append(sheet_data[0][key])
 
         # 支出：固定開銷
-        elif sheet_data[0]["支出類型"] == "固定開銷":
+        elif sheet_data[0]["支出類別"] == "固定開銷":
             
-            # excel只需要填入「固定支出」即可
+            # excel 只需要填入「固定支出」即可
             # 把 google sheet 的 G 吃進來
-            if key == "G":
+            if key == "C":
+                inToExcel.append(sheet_data[0]["開銷內容"])
+            elif key == "D":
+                inToExcel.append(sheet_data[0]["支出明細"])
+            elif key == "G":
                 if sheet_data[0]["支出者"] == "曉仙":
-                    inToExcel.append(sheet_data[0][key])
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
                     inToExcel.append("")
                 elif sheet_data[0]["支出者"] == "育玠":
                     inToExcel.append("")
-                    inToExcel.append(sheet_data[0][key])
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
+                elif sheet_data[0]["支出者"] == "共同分擔":
+                    inToExcel.append(sheet_data[0]["支出金額"])
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append("")
+                elif sheet_data[0]["支出者"] == "固定開銷":
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append("")
+                    inToExcel.append(sheet_data[0]["支出金額"])
+            elif key == "I":
+                inToExcel.append(sheet_data[0]["支出備註"])
             else:
                 inToExcel.append(sheet_data[0][key])
         
     # 收入
     elif sheet_data[0]["類型"] == "收入":
-        inToExcel.append(sheet_data[0][key])        
+        if key == "C":
+            inToExcel.append(sheet_data[0]["收入類別"])
+        elif key == "D":
+            inToExcel.append(sheet_data[0]["收入明細"])
+        elif key == "I":
+            inToExcel.append(sheet_data[0]["收入備註"])
+        
         
     else:
         # 如果 key 對應的 value 是空字串，則填入「空字串」
@@ -132,6 +178,6 @@ myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = in
 
 
 
- # 之後進度（action item）：將 value 填入 excel 對應的行→用 if else 迴圈，篩選、插入 G →測試一次填入好幾行→設定程式執行的時機→從 google sheet 抓的範圍
+ # 之後進度（action item）：測試一次填入好幾行→設定程式執行的時機→從 google sheet 抓的範圍
 
 
