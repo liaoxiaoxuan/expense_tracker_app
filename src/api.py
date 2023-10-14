@@ -189,16 +189,34 @@ for row_data in sheet_data:
     myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = inToExcel
     startIndex_A += 1
 
-# # 自動儲存 excel
-# myExcel.save()
+# 自動儲存 excel
+myExcel.workbook.save()
 
-# # ．自動關閉 excel
-# myExcel.close()
+# 自動關閉 excel
+myExcel.workbook.close()
+
+
+
+# # 刪除  google sheet 當天的資料
+
+# # 選擇要操作的工作表
+# sheet = myExcel.sheets['工作表1']  # 替換成您的工作表名稱
+
+# # 獲取標題行
+# title_row = sheet.range('1:1')
+
+# # 獲取最後一行的行號
+# last_row = sheet.cells.last_cell.row
+# print(last_row)
+
+# # 刪除除標題行以外的資料
+# if last_row > 1:
+#     sheet.range(f"2:{last_row}").clear()  # 清空除標題行以外的資料
 
 
 
 # 之後進度（action item）
 # ．設定程式執行的時機
-# ．刪除  google sheet 當天的資料
+
 
 
