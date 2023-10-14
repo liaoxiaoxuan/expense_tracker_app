@@ -192,7 +192,8 @@ for i in range(10):
 # 自動儲存 excel
 myExcel.save()
 
-
+# ．自動關閉 excel
+myExcel.close()
 
 
 
