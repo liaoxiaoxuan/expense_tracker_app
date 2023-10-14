@@ -1,6 +1,7 @@
 import pygsheets
 import pprint # 使用 pprint 套件，印出較容易閱讀的格式
 from call_sheetrange import MyExcel
+import xlwings as xw # 使用 xw 執行 xlwings
 
 auth_file = "../static/expense-tracker-app-392308-a0f2bb4f12a1.json"
 googleCloud = pygsheets.authorize(service_file = auth_file)
@@ -188,8 +189,18 @@ for i in range(10):
     myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = inToExcel
     startIndex_A += 1
 
+# 自動儲存 excel
+myExcel.save()
 
 
- # 之後進度（action item）：測試一次填入好幾行（用for迴圈滾[0]）→設定程式執行的時機→從 google sheet 抓的範圍
+
+
+
+ # 之後進度（action item）
+ # ．設定程式執行的時機
+ # ．從 google sheet 抓的範圍
+ # ．自動儲存 excel
+ # ．自動關閉 excel
+ # ．刪除  google sheet 當天的資料
 
 
