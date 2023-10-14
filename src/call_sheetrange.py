@@ -16,5 +16,5 @@ import xlwings
 class MyExcel():
     def __init__(self):
         self.app = xlwings.App(visible=True, add_book=False)
-        self.workbook = self.app.books.open(r'../local/expense_tracker_app_text.xlsx')   # 開啟excel（工作簿）
-        self.sheet = self.workbook.sheets['工作表1']  # 開啟sheet（工作表）
+        self.workbook = self.app.books.open(r'../local/expense_tracker_app.xlsx')   # 開啟excel（工作簿）
+        self.sheet = self.workbook.sheets['流水帳']  # 開啟sheet（工作表）
