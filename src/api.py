@@ -66,7 +66,7 @@ row = 1
 inToExcel = []
     
 # 一次填入多個 column
-for i in range(10):
+for row_data in sheet_data:
     inToExcel = []  # 以一個新的空列表，儲存迴圈中的數據
 
     for key in excelHeader:
@@ -76,92 +76,92 @@ for i in range(10):
         # 印出 key 對應的 value
     
         # 支出
-        if sheet_data[i]["類型"] == "支出":
+        if row_data["類型"] == "支出":
             
             # 支出：日常消費
-            if sheet_data[i]["支出類別"] == "日常消費":
+            if row_data["支出類別"] == "日常消費":
                 
                 # 會有填入excel格子的問題，多餘的空格？
                 # 把 google sheet 的 G 吃進來
                 if key == "C":
-                    inToExcel.append(sheet_data[i]["消費內容"])
+                    inToExcel.append(row_data["消費內容"])
                 elif key == "D":
-                    inToExcel.append(sheet_data[i]["支出明細"])
+                    inToExcel.append(row_data["支出明細"])
                 elif key == "G":
-                    if sheet_data[i]["支出者"] == "曉仙":
+                    if row_data["支出者"] == "曉仙":
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
-                        inToExcel.append("")
-                        inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "育玠":
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
-                        inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "共同分擔":
-                        inToExcel.append(sheet_data[i]["支出金額"])
+                    elif row_data["支出者"] == "育玠":
                         inToExcel.append("")
                         inToExcel.append("")
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "固定開銷":
+                    elif row_data["支出者"] == "共同分擔":
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
                         inToExcel.append("")
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
-                elif key == "I":inToExcel.append(sheet_data[i]["支出備註"])
+                    elif row_data["支出者"] == "固定開銷":
+                        inToExcel.append("")
+                        inToExcel.append("")
+                        inToExcel.append("")
+                        inToExcel.append(row_data["支出金額"])
+                elif key == "I":inToExcel.append(row_data["支出備註"])
                 else:
-                    inToExcel.append(sheet_data[i][key])
+                    inToExcel.append(row_data[key])
     
             # 支出：固定開銷
-            elif sheet_data[i]["支出類別"] == "固定開銷":
+            elif row_data["支出類別"] == "固定開銷":
                 
                 # excel 只需要填入「固定支出」即可
                 # 把 google sheet 的 G 吃進來
                 if key == "C":
-                    inToExcel.append(sheet_data[i]["開銷內容"])
+                    inToExcel.append(row_data["開銷內容"])
                 elif key == "D":
-                    inToExcel.append(sheet_data[i]["支出明細"])
+                    inToExcel.append(row_data["支出明細"])
                 elif key == "G":
-                    if sheet_data[i]["支出者"] == "曉仙":
+                    if row_data["支出者"] == "曉仙":
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
-                        inToExcel.append("")
-                        inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "育玠":
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
-                        inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "共同分擔":
-                        inToExcel.append(sheet_data[i]["支出金額"])
+                    elif row_data["支出者"] == "育玠":
                         inToExcel.append("")
                         inToExcel.append("")
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
-                    elif sheet_data[i]["支出者"] == "固定開銷":
+                    elif row_data["支出者"] == "共同分擔":
+                        inToExcel.append(row_data["支出金額"])
                         inToExcel.append("")
                         inToExcel.append("")
                         inToExcel.append("")
-                        inToExcel.append(sheet_data[i]["支出金額"])
+                    elif row_data["支出者"] == "固定開銷":
+                        inToExcel.append("")
+                        inToExcel.append("")
+                        inToExcel.append("")
+                        inToExcel.append(row_data["支出金額"])
                 elif key == "I":
-                    inToExcel.append(sheet_data[i]["支出備註"])
+                    inToExcel.append(row_data["支出備註"])
                 else:
-                    inToExcel.append(sheet_data[i][key])
+                    inToExcel.append(row_data[key])
             
         # 收入
-        elif sheet_data[i]["類型"] == "收入":
+        elif row_data["類型"] == "收入":
             if key == "C":
-                inToExcel.append(sheet_data[i]["收入類別"])
+                inToExcel.append(row_data["收入類別"])
             elif key == "D":
-                inToExcel.append(sheet_data[i]["收入明細"])
+                inToExcel.append(row_data["收入明細"])
             elif key == "I":
-                inToExcel.append(sheet_data[i]["收入備註"])
+                inToExcel.append(row_data["收入備註"])
             elif key == "G":
                 inToExcel.append("")
                 inToExcel.append("")
                 inToExcel.append("")
                 inToExcel.append("")
             else:
-                inToExcel.append(sheet_data[i][key])
+                inToExcel.append(row_data[key])
         
         else:
             # 如果 key 對應的 value 是空字串，則填入「空字串」
@@ -189,19 +189,16 @@ for i in range(10):
     myExcel.sheet.range('A'+str(startIndex_A)).options(transpose = False).value = inToExcel
     startIndex_A += 1
 
-# 自動儲存 excel
-myExcel.save()
+# # 自動儲存 excel
+# myExcel.save()
 
-# ．自動關閉 excel
-myExcel.close()
+# # ．自動關閉 excel
+# myExcel.close()
 
 
 
- # 之後進度（action item）
- # ．設定程式執行的時機
- # ．從 google sheet 抓的範圍
- # ．自動儲存 excel
- # ．自動關閉 excel
- # ．刪除  google sheet 當天的資料
+# 之後進度（action item）
+# ．設定程式執行的時機
+# ．刪除  google sheet 當天的資料
 
 
