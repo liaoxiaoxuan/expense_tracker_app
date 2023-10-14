@@ -216,7 +216,7 @@ myExcel.workbook.close()
 
 
 # 之後進度（action item）
-# ．設定程式執行的時機
+# ．插入log
 
 
 
