@@ -1,2 +1,2 @@
-_version_ = '0.1.0.0'
-_author_ = 'Angel.Liao'
+__version__ = "0.1.2342.1"
+__author__ = "Angel Liao"
