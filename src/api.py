@@ -23,7 +23,7 @@ def expense_tracker():
     strMsg = "start expense tracker"
     WriteLog(Logger, strMsg)
 
-    auth_file = "./local/expense-tracker-app-392308-a0f2bb4f12a1.json"
+    auth_file = "./local/expense-tracker-app3-b8d7f50165a5.json"
     googleCloud = pygsheets.authorize(service_file = auth_file)
     
     # setting sheet
