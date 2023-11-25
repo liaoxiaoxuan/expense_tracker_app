@@ -1,6 +1,8 @@
 # TERMINAL
 
 ```bash # 一種 terminal 的語法
+venv：virtual environment
+
 python -m venv venv # 創建(venv)虛擬環境(venv)
 D:\PYTHON\expense_tracker_app\venv\Scripts\Activate.ps1 # 進入虛擬環境(venv)
 ```
